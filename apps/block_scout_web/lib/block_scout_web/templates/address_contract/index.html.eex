@@ -172,8 +172,17 @@
                 </div>
               </div>
             <% end %>
-          <div class="tile tile-muted">
+          <div class="tile tile-muted mb-4">
             <pre class="pre-wrap pre-scrollable"><code class="nohighlight"><%= contract_code %></code></pre>
+          </div>
+          <div class="d-flex justify-content-between align-items-baseline">
+            <h3><%= gettext "Contract Creation Code" %></h3>
+            <button type="button" class="btn-line" style="float: left;" id="button" data-clipboard-text="<%= creation_code(@address) %>" aria-label="copy contract creation code">
+              <%= gettext "Copy Contract Creation Code" %>
+            </button>
+          </div>
+          <div class="tile tile-muted">
+            <pre class="pre-wrap pre-scrollable"><code class="nohighlight"><%= creation_code(@address) %></code></pre>
           </div>
         <% end %>
       </section>
