@@ -11,6 +11,7 @@ defmodule EthereumJSONRPC.Block do
   @type elixir :: %{String.t() => non_neg_integer | DateTime.t() | String.t() | nil}
   @type params :: %{
           difficulty: pos_integer(),
+          epochId: non_neg_integer(),
           extra_data: EthereumJSONRPC.hash(),
           gas_limit: non_neg_integer(),
           gas_used: non_neg_integer(),
@@ -24,6 +25,7 @@ defmodule EthereumJSONRPC.Block do
           receipts_root: EthereumJSONRPC.hash(),
           sha3_uncles: EthereumJSONRPC.hash(),
           size: non_neg_integer(),
+          slotId: non_neg_integer(),
           state_root: EthereumJSONRPC.hash(),
           timestamp: DateTime.t(),
           total_difficulty: non_neg_integer(),
@@ -194,6 +196,7 @@ defmodule EthereumJSONRPC.Block do
   def elixir_to_params(
         %{
           "difficulty" => difficulty,
+          "epochId" => epochId,
           "extraData" => extra_data,
           "gasLimit" => gas_limit,
           "gasUsed" => gas_used,
@@ -205,6 +208,7 @@ defmodule EthereumJSONRPC.Block do
           "receiptsRoot" => receipts_root,
           "sha3Uncles" => sha3_uncles,
           "size" => size,
+          "slotId" => slotId,
           "stateRoot" => state_root,
           "timestamp" => timestamp,
           "totalDifficulty" => total_difficulty,
@@ -214,6 +218,7 @@ defmodule EthereumJSONRPC.Block do
       ) do
     %{
       difficulty: difficulty,
+      epochId: epochId,
       extra_data: extra_data,
       gas_limit: gas_limit,
       gas_used: gas_used,
@@ -227,6 +232,7 @@ defmodule EthereumJSONRPC.Block do
       receipts_root: receipts_root,
       sha3_uncles: sha3_uncles,
       size: size,
+      slotId: slotId,
       state_root: state_root,
       timestamp: timestamp,
       total_difficulty: total_difficulty,
@@ -239,6 +245,7 @@ defmodule EthereumJSONRPC.Block do
   def elixir_to_params(
         %{
           "difficulty" => difficulty,
+          "epochId" => epochId,
           "extraData" => extra_data,
           "gasLimit" => gas_limit,
           "gasUsed" => gas_used,
@@ -250,6 +257,7 @@ defmodule EthereumJSONRPC.Block do
           "receiptsRoot" => receipts_root,
           "sha3Uncles" => sha3_uncles,
           "size" => size,
+          "slotId" => slotId,
           "stateRoot" => state_root,
           "timestamp" => timestamp,
           "transactionsRoot" => transactions_root,
@@ -258,6 +266,7 @@ defmodule EthereumJSONRPC.Block do
       ) do
     %{
       difficulty: difficulty,
+      epochId: epochId,
       extra_data: extra_data,
       gas_limit: gas_limit,
       gas_used: gas_used,
@@ -271,6 +280,7 @@ defmodule EthereumJSONRPC.Block do
       receipts_root: receipts_root,
       sha3_uncles: sha3_uncles,
       size: size,
+      slotId: slotId,
       state_root: state_root,
       timestamp: timestamp,
       transactions_root: transactions_root,
